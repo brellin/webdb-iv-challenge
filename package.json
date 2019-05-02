@@ -1,0 +1,24 @@
+{
+  "name": "webdb-iv-challenge",
+  "version": "1.0.0",
+  "description": "Practice data modeling and schema building for a relational database using knex",
+  "main": "index.js",
+  "repository": "https://github.com/brellin/webdb-iv-challenge.git",
+  "author": "William Umstead <william.c.umstead@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "helmet": "^3.16.0",
+    "knex": "^0.16.5",
+    "morgan": "^1.9.1",
+    "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
