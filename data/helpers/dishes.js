@@ -1,4 +1,4 @@
-const db = require('../dbConfig')('dishes')
+const db = require('../dbConfig')
 
 module.exports = {
     find,
@@ -9,21 +9,22 @@ module.exports = {
 }
 
 function find() {
-    return db;
+    return db('dishes')
 }
 
 function findById(id) {
-    return db
+    return db('dishes')
         .where({ id })
         .first();
 }
 
 function add(dish) {
-    return db.insert(dish);
+    return db('dishes')
+        .insert(dish)
 }
 
 function update(id, changes) {
-    return db
+    return db('dishes')
         .where({ id })
         .update(changes)
         .then(count => {
@@ -36,7 +37,7 @@ function update(id, changes) {
 }
 
 function remove(id) {
-    return db
+    return db('dishes')
         .where({ id })
         .del();
 }

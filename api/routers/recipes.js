@@ -35,15 +35,17 @@ router.post('/', async (req, res) => {
     const { body } = req
     try {
         const post = await recipes.add(body)
-        res.status(200).json({
-            name: body.name,
-            id: post[0]
-        })
+        const get = await recipes.find()
+        post ?
+            res.status(200).json(get)
+            :
+            res.status(400).json({
+                message: `'${body.name}' already exists as a recipe. Please try again.`
+            })
     } catch (err) {
         console.log(err)
         res.status(500).json({
             error: err.code,
-            message: `'${body.name}' already exists as a recipe. Please try again.`
         })
     }
 })
